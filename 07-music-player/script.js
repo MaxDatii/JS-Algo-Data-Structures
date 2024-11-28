@@ -100,6 +100,7 @@ const playSong = (id) => {
 
   highlightCurrentSong();
   setPlayerDisplay();
+  setPlayButtonAccessibleText();
   audio.play();
 };
 
@@ -129,6 +130,17 @@ const playPreviousSong = () => {
 
     playSong(previousSong.id);
    }
+};
+
+const shuffle = () => {
+  userData?.songs.sort(() => Math.random() - 0.5);
+  userData.currentSong = null;
+  userData.songCurrentTime = 0;
+
+  renderSongs(userData?.songs);
+  pauseSong();
+  setPlayerDisplay();
+  setPlayButtonAccessibleText();
 };
 
 const setPlayerDisplay = () => {
@@ -200,6 +212,8 @@ pauseButton.addEventListener("click",  pauseSong);
 nextButton.addEventListener("click", playNextSong);
 
 previousButton.addEventListener("click", playPreviousSong);
+
+
 
 const sortSongs = () => {
   userData?.songs.sort((a,b) => {
