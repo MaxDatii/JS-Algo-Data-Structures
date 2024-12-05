@@ -15,25 +15,21 @@ function isPalindrome(input) {
 checkButton.addEventListener("click", () => {
     const userInput = textInput.value.trim(); // Remove excess whitespace
 
-    // Clear previous results
-    resultDiv.classList.add("hidden");
-    resultDiv.textContent = "";
-
+    // Check for empty input
     if (!userInput) {
-        // Handle empty input
-        resultDiv.textContent = "Please enter some text to check.";
-        resultDiv.style.color = "red";
-        resultDiv.classList.remove("hidden");
+        alert("Please input a value"); // Show alert for empty input
         return;
     }
 
     // Check if the input is a palindrome
     const palindromeCheck = isPalindrome(userInput);
 
-    // Update the result div
+    // Update the result div with the original input and formatted message
     resultDiv.textContent = palindromeCheck
-        ? `"${userInput}" is a palindrome!`
-        : `"${userInput}" is not a palindrome.`;
+        ? `${userInput} is a palindrome`
+        : `${userInput} is not a palindrome`;
     resultDiv.style.color = palindromeCheck ? "green" : "red";
+
+    // Ensure the result div is visible
     resultDiv.classList.remove("hidden");
 });
