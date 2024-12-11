@@ -197,9 +197,12 @@ const setPlayerCards = (arr = players) => {
 };
 
 playersDropdownList.addEventListener("change", (e) => {
+  playerCards.innerHTML = "";
+  
+  switch (e.target.value) {
+    case "nickname":
+      setPlayerCards(players.filter((player) => player.nickname !== null));
+      break;
 
-
-console.log(e.target.value)
-
-
+  }
 });
