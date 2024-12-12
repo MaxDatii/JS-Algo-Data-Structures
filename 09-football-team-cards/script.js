@@ -222,7 +222,7 @@ playersDropdownList.addEventListener("change", (e) => {
       );
       break;
 
- case default:
+    default:
       setPlayerCards();
       break;
 
