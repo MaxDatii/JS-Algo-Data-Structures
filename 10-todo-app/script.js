@@ -34,7 +34,7 @@ taskForm.addEventListener("submit", (e) => {
   const dataArrIndex = taskData.findIndex((item) => item.id === currentTask.id);
 
   const taskObj = {
-    id: titleInput.value
+    id: titleInput.value.toLowerCase().split(" ")
   };
   console.log(taskObj);
 });
